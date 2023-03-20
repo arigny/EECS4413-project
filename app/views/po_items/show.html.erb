@@ -1,0 +1,23 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="container">
+
+  <%= render @po_item %>
+
+  <div>
+      <%# <h1><%= @po_item.name %>
+      <%# </h1> %> 
+      <p><%= @po_item.bid %></p>
+      <p><%= @po_item.quantity %></p>
+      <p><%= @po_item.colour %></p>
+      <p><%= @po_item.size%></p>
+
+  </div>
+  
+  <div>
+    <%= link_to "Edit this po item", edit_po_item_path(@po_item) %> |
+    <%= link_to "Back to po items", po_items_path %>
+
+    <%= button_to "Destroy this po item", @po_item, method: :delete %>
+  </div>
+</div>

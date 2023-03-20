@@ -1,4 +1,3 @@
-class ProductOrder < ApplicationRecord
+class PoItem < ApplicationRecord
     validates :bid, :quantity, :colour, :size, presence: true
-  end
-  
+end

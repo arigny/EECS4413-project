@@ -47,4 +47,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_25_024157) do
     t.index ["item_id"], name: "index_visit_events_on_item_id"
   end
 
+  create_table "purchase_orders", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
 end
