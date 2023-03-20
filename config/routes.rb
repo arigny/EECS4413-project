@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :addresses
   resources :visit_events
   resources :items
+  resources :product_orders
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
