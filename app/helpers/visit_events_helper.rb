@@ -1,0 +1,2 @@
+module VisitEventsHelper
+end

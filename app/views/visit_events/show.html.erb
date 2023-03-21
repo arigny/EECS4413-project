@@ -1,0 +1,20 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="container">
+  <%= render @visit_event %>
+
+  <div>
+    <h1><%= @visit_event.ipaddress %></h1>
+    <p><%= @visit_event.day %></p>
+    <p><%= @visit_event.bid %></p>
+    <p><%= @visit_event.eventtype %></p>
+
+  </div>
+
+  <div>
+    <%= link_to "Edit this visit event", edit_visit_event_path(@visit_event) %> |
+    <%= link_to "Back to visit events", visit_events_path %>
+
+    <%= button_to "Destroy this visit event", @visit_event, method: :delete %>
+  </div>
+  
