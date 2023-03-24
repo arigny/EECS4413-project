@@ -18,7 +18,7 @@ E-commerce project for EECS4413 to build an e-commerce website for a store selli
 - Run tests with `rails test`
 - Run development server with `rails server` and `Ctrl-T`
 
-**Additional info(if run into error)***
+Additional info(if run into error)
 https://docs.google.com/document/d/1XWKsVJwxOUPlugnVzXWkIVEVOVrr7OG82N_7FYNZo-k/edit?usp=sharing
 
 # README
