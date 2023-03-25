@@ -10,18 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_14_032406) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_21_064305) do
   create_table "items", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "bid"
-    t.string "name"
-    t.string "description"
-    t.string "category"
-    t.string "brand"
-    t.integer "quantity"
-    t.decimal "price", precision: 10, scale: 2
-    t.string "colour"
-    t.string "size"
-    t.decimal "weight", precision: 10, scale: 2
+    t.string "bid", limit: 20, null: false
+    t.string "name", limit: 60, null: false
+    t.string "description", limit: 60, null: false
+    t.string "category", limit: 60, null: false
+    t.string "brand", limit: 60, null: false
+    t.integer "quantity", null: false
+    t.decimal "price", precision: 10, scale: 2, null: false
+    t.string "colour", limit: 60, null: false
+    t.string "size", limit: 60, null: false
+    t.decimal "weight", precision: 10, scale: 2, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
