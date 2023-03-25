@@ -1,31 +1,20 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Visit events</h1>
+<div class="container">
+  <h1>Visit events</h1>
 
-<div id="visit_events">
-  <h1>Items</h1>
-
-  <div id="items">
-    <% @items.each do |item| %>
-      <h5><%= item.name %></h5>
-      <p><%= item.bid %></p>
+  <div id="visit_events">
+    <% @visit_events.each do |visit_event| %>
+      <h5><%= visit_event.ipaddress %></h5>
+      <p><%= visit_event.day %></p>
+      <p><%= visit_event.bid %></p>
+      <p><%= visit_event.eventtype %></p>
       <p>
-        <%= link_to "Show this item", item %>
+        <%= link_to "Show this visit event", visit_event %>
       </p>
     <% end %>
   </div>
 
-  <h1>Visit Events</h1>
-  <% @visit_events.each do |visit_event| %>
-    <%= visit_event.ipaddress %>
-    <%= visit_event.day %>
-    <%= visit_event.bid %>
-    <%= visit_event.eventtype %>
-    <p>
-      <%= link_to "Show this visit event", visit_event %>
-    </p>
-  <% end %>
+  <%= link_to "New visit event", new_visit_event_path %>
+
 </div>
-
-<%= link_to "New visit event", new_visit_event_path %>
-
