@@ -1,0 +1,20 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="container">
+  <h1>Visit events</h1>
+
+  <div id="visit_events">
+    <% @visit_events.each do |visit_event| %>
+      <h5><%= visit_event.ipaddress %></h5>
+      <p><%= visit_event.day %></p>
+      <p><%= visit_event.bid %></p>
+      <p><%= visit_event.eventtype %></p>
+      <p>
+        <%= link_to "Show this visit event", visit_event %>
+      </p>
+    <% end %>
+  </div>
+
+  <%= link_to "New visit event", new_visit_event_path %>
+
+</div>

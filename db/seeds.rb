@@ -44,3 +44,27 @@ Item.create(
   size: 'small',
   weight: '30',
 )
+
+VisitEvent.create(
+  ipaddress: '1.23.4.5',
+  day: '12202022',
+  bid: 'b001',
+  eventtype: 'VIEW',
+  item_id: 1,
+)
+
+VisitEvent.create(
+  ipaddress: '1.23.4.5',
+  day: '12242022',
+  bid: 'b001',
+  eventtype: 'CART',
+  item_id: 1,
+)
+
+VisitEvent.create(
+  ipaddress: '1.23.4.5',
+  day: '12252022',
+  bid: 'b001',
+  eventtype: 'PURCHASE',
+  item_id: 1,
+)

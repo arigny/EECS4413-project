@@ -26,4 +26,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_21_064305) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "visit_events", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "ipaddress", limit: 20, null: false
+    t.string "day", limit: 8, null: false
+    t.string "bid", limit: 20, null: false
+    t.string "eventtype", limit: 20, null: false
+    t.bigint "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_visit_events_on_item_id"
+  end
+
 end
