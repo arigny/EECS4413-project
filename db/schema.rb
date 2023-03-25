@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_21_064305) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_25_024157) do
+  create_table "addresses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "street", limit: 100, null: false
+    t.string "province", limit: 20, null: false
+    t.string "country", limit: 20, null: false
+    t.string "zip", limit: 20, null: false
+    t.string "phone", limit: 20
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "items", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "bid", limit: 20, null: false
     t.string "name", limit: 60, null: false
