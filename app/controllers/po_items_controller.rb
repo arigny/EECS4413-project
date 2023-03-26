@@ -74,7 +74,6 @@ class PoItemsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def po_item_params
-      # params.fetch(:po_item, {})
-      params.require(:po_item).permit(:id, :bid, :quantity, :colour, :size)
+      params.require(:po_item).permit(:id, :bid, :price, :purchase_order_id, :item_id)
     end
 end

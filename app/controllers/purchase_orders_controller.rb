@@ -65,7 +65,6 @@ class PurchaseOrdersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def purchase_order_params
-      # params.fetch(:purchase_order, {})
-      params.require(:purchase_order).permit(:id, :bid)
+      params.require(:purchase_order).permit(:id, :lname, :fname, :status, :address_id)
     end
 end

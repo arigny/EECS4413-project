@@ -1,15 +1,7 @@
 <p style="color: green"><%= notice %></p>
 
 <div class="container">
-
   <%= render @purchase_order %>
-
-  <div>
-      <%# <h1><%= @purchase_order.name %>
-      <%# </h1> %> 
-      <p><%= @purchase_order.bid %></p>
-
-  </div>
 
   <div>
     <%= link_to "Edit this purchase order", edit_purchase_order_path(@purchase_order) %> |

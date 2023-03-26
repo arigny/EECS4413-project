@@ -1,16 +1,16 @@
-<p style="color: green"><%= notice %></p>
+<div class="container">
+  <p style="color: green"><%= notice %></p>
 
-<h1>Po items</h1>
+  <h1>Po items</h1>
 
-<div id="po_items">
-  <% @po_items.each do |po_item| %>
-    <%# <h5><%= po_item.name %>
-      <%# </h5> %> 
-      <p><%= po_item.bid %></p>
-      <p>
-      <%= link_to "Show this po item", po_item %>
-    </p>
-  <% end %>
+  <div id="po_items">
+    <% @po_items.each do |po_item| %>
+      <%= render po_item %>
+        <p>
+        <%= link_to "Show this po item", po_item %>
+      </p>
+    <% end %>
+  </div>
+
+  <%= link_to "New po item", new_po_item_path %>
 </div>
-
-<%= link_to "New po item", new_po_item_path %>
