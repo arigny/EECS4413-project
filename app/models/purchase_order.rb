@@ -1,3 +1,6 @@
 class PurchaseOrder < ApplicationRecord
-    validates :bid, presence: true
+    belongs_to :address
+    has_many :po_items
+
+    validates :lname, :fname, :status, :address_id, presence: true
 end

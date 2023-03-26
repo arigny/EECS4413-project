@@ -92,3 +92,38 @@ Address.create(
   zip: 'K3C 9T5',
   phone: '416-123-9568',
 )
+
+PurchaseOrder.create(
+  lname: 'Amelia',
+  fname: 'Brown',
+  status: 'PROCESSED',
+  address_id: 1,
+)
+
+PurchaseOrder.create(
+  lname: 'Peter',
+  fname: 'Bennett',
+  status: 'DENIED',
+  address_id: 2,
+)
+
+PurchaseOrder.create(
+  lname: 'Yixi',
+  fname: 'Xie',
+  status: 'ORDERED',
+  address_id: 3,
+)
+
+PoItem.create(
+  item_id: 1,
+  bid: 'b001',
+  price: 20,
+  purchase_order_id: 1,
+)
+
+PoItem.create(
+  item_id: 2,
+  bid: 'c001',
+  price: 500,
+  purchase_order_id: 2,
+)

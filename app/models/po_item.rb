@@ -1,3 +1,6 @@
 class PoItem < ApplicationRecord
-    validates :bid, :quantity, :colour, :size, presence: true
+    belongs_to :item
+    belongs_to :purchase_order
+
+    validates :bid, :price, presence: true
 end
