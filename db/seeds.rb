@@ -68,3 +68,27 @@ VisitEvent.create(
   eventtype: 'PURCHASE',
   item_id: 1,
 )
+
+Address.create(
+  street: '567 Yonge St',
+  province: 'ON',
+  country: 'Canada',
+  zip: '6T5',
+  phone: '647-123-4567',
+)
+
+Address.create(
+  street: '945 Avenue Rd',
+  province: 'ON',
+  country: 'Canada',
+  zip: 'M1C 6K5',
+  phone: '416-123-8569',
+)
+
+Address.create(
+  street: '189 Keele St',
+  province: 'ON',
+  country: 'Canada',
+  zip: 'K3C 9T5',
+  phone: '416-123-9568',
+)
