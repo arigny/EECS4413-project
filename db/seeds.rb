@@ -139,3 +139,20 @@ Review.create(
   comment: 'Enjoyed my eyeglasses1. A decent pair of glasses to read. Too small though.',
   item_id: 2,
 )
+
+User.create(
+  fname: "Admin",
+  lname: "Administratum",
+  email: "admin@email.com",
+  password: "mypassword",
+  admin: true,
+  address_id: 1,
+)
+
+User.create(
+  fname: "Guest",
+  lname: "Guestum",
+  email: "guest@email.com",
+  password: "mypassword",
+  address_id: 2,
+)
