@@ -1,0 +1,37 @@
+<%= form_with(model: po_item) do |form| %>
+  <% if po_item.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(po_item.errors.count, "error") %> prohibited this po_item from being saved:</h2>
+
+      <ul>
+        <% po_item.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :bid %>
+    <%= form.text_field :bid %>
+  </div>
+
+  <div>
+    <%= form.label :quantity %>
+    <%= form.number_field :quantity %>
+  </div>
+
+  <div>
+    <%= form.label :colour %>
+    <%= form.text_field :colour %>
+  </div>
+
+  <div>
+    <%= form.label :size %>
+    <%= form.number_field :size %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

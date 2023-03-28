@@ -36,6 +36,27 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_25_024157) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "po_items", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "bid", limit: 20, null: false
+    t.integer "price", null: false
+    t.bigint "purchase_order_id"
+    t.bigint "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_po_items_on_item_id"
+    t.index ["purchase_order_id"], name: "index_po_items_on_purchase_order_id"
+  end
+
+  create_table "purchase_orders", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "lname", limit: 20, null: false
+    t.string "fname", limit: 20, null: false
+    t.string "status", limit: 20, null: false
+    t.bigint "address_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["address_id"], name: "index_purchase_orders_on_address_id"
+  end
+
   create_table "visit_events", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "ipaddress", limit: 20, null: false
     t.string "day", limit: 8, null: false
