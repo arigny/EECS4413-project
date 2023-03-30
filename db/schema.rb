@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_25_024157) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_28_025707) do
   create_table "addresses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "street", limit: 100, null: false
     t.string "province", limit: 20, null: false
@@ -55,6 +55,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_25_024157) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["address_id"], name: "index_purchase_orders_on_address_id"
+  end
+
+  create_table "reviews", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "rating", null: false
+    t.text "comment", null: false
+    t.bigint "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_reviews_on_item_id"
   end
 
   create_table "visit_events", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|

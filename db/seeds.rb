@@ -127,3 +127,15 @@ PoItem.create(
   price: 500,
   purchase_order_id: 2,
 )
+
+Review.create(
+  rating: 4,
+  comment: 'Loved my sunnyglasses1! The perfect pair of glasses to go out.',
+  item_id: 1,
+)
+
+Review.create(
+  rating: 0,
+  comment: 'Enjoyed my eyeglasses1. A decent pair of glasses to read. Too small though.',
+  item_id: 2,
+)
