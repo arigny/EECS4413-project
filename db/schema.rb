@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_28_025707) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_28_225832) do
   create_table "addresses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "street", limit: 100, null: false
     t.string "province", limit: 20, null: false
@@ -66,6 +66,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_28_025707) do
     t.index ["item_id"], name: "index_reviews_on_item_id"
   end
 
+  create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "fname"
+    t.string "lname"
+    t.string "email", null: false
+    t.string "password", null: false
+    t.boolean "admin", default: false, null: false
+    t.bigint "address_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["address_id"], name: "index_users_on_address_id"
+  end
+
   create_table "visit_events", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "ipaddress", limit: 20, null: false
     t.string "day", limit: 8, null: false
@@ -77,4 +89,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_28_025707) do
     t.index ["item_id"], name: "index_visit_events_on_item_id"
   end
 
+  add_foreign_key "users", "addresses"
 end
