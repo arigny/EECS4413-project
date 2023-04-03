@@ -5,12 +5,13 @@ E-commerce project for EECS4413 to build an e-commerce website for a store selli
 
 **How to run the app**
 
-- Clone the repo `git clone EECS4413-Project`
-- Run `bundle install` in a terminal to install gems
-- Run `npm install` in a terminal to install dependencies
-- Run `rails db:create` in a terminal to create the database
-- Run `rails db:migrate` in a terminal to run migrations
-- Run `rails db:seed` in a terminal to seed the database
+- Clone the repo `git clone EECS4413-Project` and run the following in a terminal
+- Run `bundle install` to install gems
+- Run `npm install` to install dependencies
+- Run `npm run build` to create the production build
+- Run `rails db:create` to create the database
+- Run `rails db:migrate` to run migrations
+- Run `rails db:seed` to seed the database
 - Start the development server via `rails server`
 - Open the server with `Ctrl-T`
 
