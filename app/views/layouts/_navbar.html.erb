@@ -1,0 +1,31 @@
+<br>
+
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+    <%= link_to 'Home', root_path, class: 'navbar-brand' %>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <%= link_to 'Items', root_path, class: "nav-link #{'active' if current_page?(root_path)}" %>
+            </li>
+            <li class="nav-item">
+                <%= link_to 'POItems', po_items_path, class: "nav-link #{'active' if current_page?(po_items_path)}" %>
+            </li>
+            <li class="nav-item">
+                <%= link_to 'PurchaseOrders', purchase_orders_path, class: "nav-link #{'active' if current_page?(purchase_orders_path)}" %>
+            </li>
+            <li class="nav-item">
+                <%= link_to 'Reviews', reviews_path, class: "nav-link #{'active' if current_page?(reviews_path)}" %>
+            </li>
+            <li class="nav-item">
+                <%= link_to 'Users', users_path, class: "nav-link #{'active' if current_page?(users_path)}" %>
+            </li>
+            <li class="nav-item">
+                <%= link_to 'VisitEvents', visit_events_path, class: "nav-link #{'active' if current_page?(visit_events_path)}" %>
+            </li>
+        </ul>
+    </div>
+
+</nav>
+
+<br>
