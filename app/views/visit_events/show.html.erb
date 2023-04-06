@@ -1,6 +1,8 @@
-<p style="color: green"><%= notice %></p>
-
 <div class="container">
+  <%= render "layouts/navbar" %>
+
+  <p style="color: green"><%= notice %></p>
+
   <%= render @visit_event %>
 
   <div>
@@ -8,5 +10,6 @@
     <%= link_to "Back to visit events", visit_events_path %>
 
     <%= button_to "Destroy this visit event", @visit_event, method: :delete %>
+  </div>
   </div>
   
