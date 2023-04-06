@@ -15,4 +15,9 @@
 
   <%= link_to "New item", new_item_path %>
 
+  <h3>React component example</h3>
+  <%= react_component("HelloWorld", { name: "Items Page" }) %>  
+
+  <h3>Items</h3>
+  <%= react_component("ItemsList", { items: @items.as_json(only: [:id, :name, :bid]) }) %>
 <div>
