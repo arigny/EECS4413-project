@@ -66,9 +66,9 @@ const POItems = ({ po_items }) => {
       </div>
       <br />
 
-      <div class="row">
+      <div className="row">
         <div className="col-sm-12 text-left">
-          <button
+          <a
             role="button"
             className="btn btn-secondary btn-md center-block"
             href={`items`}
@@ -77,9 +77,9 @@ const POItems = ({ po_items }) => {
             style={{ display: "inline-block" }}
           >
             Continue Shopping
-          </button>
+          </a>
 
-          <button
+          <a
             role="button"
             className="btn btn-primary btn-md center-block"
             href={`purchase_orders/new`}
@@ -88,7 +88,7 @@ const POItems = ({ po_items }) => {
             style={{ display: "inline-block" }}
           >
             Check out
-          </button>
+          </a>
         </div>
       </div>
     </div>
