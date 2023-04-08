@@ -22,9 +22,6 @@ class PoItemsController < ApplicationController
   # POST /po_items or /po_items.json
   def create
     @po_item = PoItem.new(po_item_params)
-
-    if Item.exists?(bid: @po_item.bid) or PoItem.exists?(bid: @po_item.bid)
-
       respond_to do |format|
         if @po_item.save
           format.html { redirect_to po_item_url(@po_item), notice: "Po item was successfully created." }
@@ -34,13 +31,6 @@ class PoItemsController < ApplicationController
           format.json { render json: @po_item.errors, status: :unprocessable_entity }
         end
       end
-
-    else
-      respond_to do |format|
-        format.html { render :new, notice: "bid does not exist" }        
-        format.json { render json: @po_item.errors, status: :unprocessable_entity }
-      end
-    end
   end
 
   # PATCH/PUT /po_items/1 or /po_items/1.json
@@ -74,6 +64,6 @@ class PoItemsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def po_item_params
-      params.require(:po_item).permit(:id, :bid, :price, :purchase_order_id, :item_id)
+      params.require(:po_item).permit(:id, :bid, :name, :price, :quantity, :purchase_order_id, :item_id)
     end
 end

@@ -117,14 +117,18 @@ PurchaseOrder.create(
 PoItem.create(
   item_id: 1,
   bid: 'b001',
+  name: 'sunnyglasses1',
   price: 20,
+  quantity: 1,
   purchase_order_id: 1,
 )
 
 PoItem.create(
   item_id: 2,
   bid: 'c001',
+  name: 'sunnyglasses2',
   price: 500,
+  quantity: 2,
   purchase_order_id: 2,
 )
 
