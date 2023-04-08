@@ -2,12 +2,14 @@ import React from "react";
 
 const POItems = ({ po_items }) => {
   let subtotal = 0;
-  let shippingfees = 0;
+  let shippingfees = 7;
   let grandTotal = 0;
 
   for (let i = 0; i < po_items.length; i++) {
     subtotal += po_items[i].price * po_items[i].quantity;
   }
+
+  grandTotal = shippingfees + subtotal;
 
   return (
     <div>
