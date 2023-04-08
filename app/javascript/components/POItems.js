@@ -2,6 +2,9 @@ import React from "react";
 
 const POItems = ({ po_items }) => {
   let subtotal = 0;
+  let shippingfees = 0;
+  let grandTotal = 0;
+
   for (let i = 0; i < po_items.length; i++) {
     subtotal += po_items[i].price * po_items[i].quantity;
   }
@@ -40,52 +43,47 @@ const POItems = ({ po_items }) => {
       <br />
       <br />
 
-      <h6>Cart Totals</h6>
-      <table className="table">
-        <thead>
-          <tr>
-            <th scope="col"></th>
-            <th scope="col"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">Subtotal</th>
-            <td>CA${subtotal}</td>
-          </tr>
-          <tr>
-            <th scope="row">Shipping fees</th>
-            <td></td>
-          </tr>
-          <tr>
-            <th scope="row">Grand Total</th>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
+      <div className="col-sm-12">
+        <h6>Cart Totals</h6>
+        <div className="row">
+          <div className="col-sm-4 border border-secondary">Subtotal</div>
+          <div className="col-sm-2 border border-secondary">CA${subtotal}</div>
+        </div>
+        <div className="row">
+          <div className="col-sm-4 border border-secondary">Shipping fees</div>
+          <div className="col-sm-2 border border-secondary">
+            CA${shippingfees}
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-sm-4 border border-secondary">Grand Total</div>
+          <div className="col-sm-2 border border-secondary">
+            CA${grandTotal}
+          </div>
+        </div>
+      </div>
+      <br />
 
-      <div>
-        <div className="col-md-12 text-left f-l">
+      <div class="row">
+        <div className="col-sm-12 text-left">
           <button
             role="button"
-            className="btn btn-md btn-primary ml-2 button-icon rounded-large"
+            className="btn btn-secondary btn-md center-block"
             href={`items`}
             data-toggle="tooltip"
             data-placement="top"
-            title="previous"
+            style={{ display: "inline-block" }}
           >
             Continue Shopping
           </button>
-        </div>
 
-        <div className="col-md-12 text-right f-r">
           <button
             role="button"
-            className="btn btn-md btn-primary ml-2 button-icon rounded-small"
+            className="btn btn-primary btn-md center-block"
             href={`purchase_orders/new`}
             data-toggle="tooltip"
             data-placement="top"
-            title="Next"
+            style={{ display: "inline-block" }}
           >
             Check out
           </button>
