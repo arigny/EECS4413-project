@@ -12,11 +12,11 @@
 
         <%= render "layouts/navbar" %>
 
-        <div class="container p-3 my-3 border">
             <h1>Virtual Chatbot </h1>
             <%# <h</h4> %>
+        <div class="container p-3 my-3 border overflow-auto" style="height:375px;">
 
-            <p id="chatLog"></p> 
+            <p id="chatLog">Click button below to ask question...</p> 
             <div id="chatbot-questions">
                 <button class="btn btn-info" id="userBox" onclick="talk('Can I return and refund eyeglasses/sunglasses?')">Can I return and refund eyeglasses/sunglasses?</button><br/>
                 <button class="btn btn-info" id="userBox" onclick="talk('What is covered under your warranty policy?')">What is covered under your warranty policy?</button><br/>
@@ -40,7 +40,7 @@
                 "I don't need any further help.": "Thank you. Click <a href=\"../items\">here</a> to quit chatbot",
             };
             var user = res;
-            document.getElementById("chatLog").innerHTML += "<div class=\"message-data\"><b>"+user + "<b/></div><br>";
+            document.getElementById("chatLog").innerHTML = "<div class=\"message-data\"><b>"+user + "<b/></div><br>";
             if (user in know) {
                 document.getElementById("chatLog").innerHTML += know[user] + "<br>";
             } else {
