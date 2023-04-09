@@ -8,9 +8,18 @@
 
     <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbolinks-track": "reload", defer: true %>
+     <script
+      src="https://kit.fontawesome.com/9cb162c1e3.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
 
   <body>
     <%= yield %>
+
+      <%= link_to(chatbot_show_path, class: "btn btn-primary btn-circle btn-xl #{'active' if current_page?(chatbot_show_path)}", id:"chatbot-button") do %>
+        <i class="fa-solid fa-robot"></i>
+      <%end%>
+     
   </body>
 </html>
