@@ -3,7 +3,27 @@ class ItemsController < ApplicationController
 
   # GET /items or /items.json
   def index
+    @brands = Item.select(:brand).distinct.order(:brand)
+    @categories = Item.select(:category).distinct.order(:category)
+    @colours = Item.select(:colour).distinct.order(:colour)
+    selected_brands = params[:brand].presence || nil
+    selected_categories = params[:category].presence || nil
+    selected_colours = params[:colour].presence || nil
+    selected_sorting = params[:sort].presence || 'name'
+
     @items = Item.all
+    @items = Item.where(brand: selected_brands) if selected_brands
+    @items = Item.where(category: selected_categories) if selected_categories
+    @items = Item.where(colour: selected_colours) if selected_colours
+    
+    case selected_sorting
+    when 'price_asc'
+      @items = @items.order(:price)
+    when 'price_desc'
+      @items = @items.order(price: :desc)
+    else
+      @items = @items.order(:name)
+    end
   end
 
   # GET /items/1 or /items/1.json

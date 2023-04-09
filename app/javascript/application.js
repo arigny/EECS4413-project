@@ -9,6 +9,7 @@ import ReactRailsUJS from "react_ujs";
 import HelloWorld from "./components/HelloWorld";
 import ItemsList from "./components/ItemsList";
 import POItems from "./components/POItems";
+import "bootstrap";
 
 ReactRailsUJS.registerComponent("HelloWorld", HelloWorld);
 ReactRailsUJS.registerComponent("ItemsList", ItemsList);
@@ -18,3 +19,20 @@ global.React = React;
 global.ReactDOM = ReactDOM;
 
 ReactRailsUJS.useContext(document);
+
+document.addEventListener("DOMContentLoaded", () => {
+    let bootstrapTooltipTriggerElements = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    let bootstrapTooltipInstances = bootstrapTooltipTriggerElements.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+
+    let bootstrapPopoverTriggerElements = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+    let bootstrapPopoverInstances = bootstrapPopoverTriggerElements.map(function (popoverTriggerEl) {
+        return new bootstrap.Popover(popoverTriggerEl);
+    });
+
+    let bootstrapDropdownTriggerElements = [].slice.call(document.querySelectorAll('.dropdown-toggle'));
+    let bootstrapDropdownInstances = bootstrapDropdownTriggerElements.map(function (dropdownTriggerEl) {
+        return new bootstrap.Dropdown(dropdownTriggerEl);
+    });
+});

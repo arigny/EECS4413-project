@@ -12,7 +12,7 @@
  *
  *= require_tree .
  *= require_self
- *= require font-awesome
+ *= require_font-awesome
  */
 
 a {
@@ -89,4 +89,17 @@ a {
 }
 #link_to_id:hover{
   color:red;
+}
+
+.searchbar {
+  width: calc(100% - 20px);
+  margin: 10px;
+}
+
+.sort-dropdown-menu {
+  min-width: 180px;
+}
+
+.dropdown-menu .form-check-input {
+  margin-left: 8px;
 }

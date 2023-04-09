@@ -5,24 +5,90 @@
 
   <h1>Shop Glasses</h1>
 
-  <%# <div id="items"> %>
-    <%# <% @items.each do |item| %> 
-      <%# <h5><%= item.name </h5> %>
-      <%# <p><%= item.bid </p> %>
-      <%# <p> %>
-        <%# <%= link_to "Show this item", item %> 
-      <%# </p> %>
-    <%# <% end %> 
-  <%# </div> %>
+  <div class="card">
+
+  <%= form_with url: items_path, id: 'sorting-form', method: :get, local: true, class: "row g-3" do |form| %>
+    <div class="col-md-auto">
+      <div class="dropdown">
+        <button class="btn btn-light dropdown-toggle" type="button" id="brand-dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+          Filter by Brand
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="brand-dropdown">
+          <% @brands.each do |brand| %>
+            <li>
+              <%= check_box_tag "brand[]", brand.brand, params[:brand]&.include?(brand.brand), {id: "brand_#{brand.brand}", class: "form-check-input", onchange: "this.form.submit();" } %>
+              <%= label_tag "brand_#{brand.brand}", brand.brand, class: "form-check-label" %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-md-auto">
+      <div class="dropdown">
+        <button class="btn btn-light dropdown-toggle" type="button" id="category-dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+          Filter by Category
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="category-dropdown">
+          <% @categories.each do |category| %>
+            <li>
+              <%= check_box_tag "category[]", category.category, params[:category]&.include?(category.category), {id: "category_#{category.category}", class: "form-check-input", onchange: "this.form.submit();" } %>
+              <%= label_tag "category_#{category.category}", category.category, class: "form-check-label" %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-md-auto">
+      <div class="dropdown">
+        <button class="btn btn-light dropdown-toggle" type="button" id="color-dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+          Filter by Colour
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="colour-dropdown">
+          <% @colours.each do |colour| %>
+            <li>
+              <%= check_box_tag "colour[]", colour.colour, params[:colour]&.include?(colour.colour), {id: "colour_#{colour.colour}", class: "form-check-input", onchange: "this.form.submit();" } %>
+              <%= label_tag "colour_#{colour.colour}", colour.colour, class: "form-check-label" %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-md-auto">
+      <div class="dropdown">
+        <button class="btn btn-light dropdown-toggle" type="button" id="sort-dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+          <%= case params[:sort]
+            when 'price_asc'
+              'Sort by: Price (low to high)'
+            when 'price_desc'
+              'Sort by: Price (high to low)'
+            else
+              'Sort by: Name'
+            end %>
+        </button>
+        <ul class="dropdown-menu sort-dropdown-menu" aria-labelledby="sort-dropdown">
+          <li>
+            <%= radio_button_tag "sort", "name", (params[:sort].nil? || params[:sort] == 'name'), {id: "sort_name", class: "form-check-input", onchange: "this.form.submit();" } %>
+            <%= label_tag "sort_name", "Name", class: "form-check-label" %>
+          </li>
+          <li>
+            <%= radio_button_tag "sort", "price_asc", (params[:sort] == 'price_asc'), {id: "sort_price_asc", class: "form-check-input", onchange: "this.form.submit();" } %>
+            <%= label_tag "sort_price_asc", "Price (low to high)", class: "form-check-label" %>
+          </li>
+          <li>
+            <%= radio_button_tag "sort", "price_desc", (params[:sort] == 'price_desc'), {id: "sort_price_desc", class: "form-check-input", onchange: "this.form.submit();" } %>
+            <%= label_tag "sort_price_desc", "Price (high to low)", class: "form-check-label" %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+    <%= react_component("ItemsList", { items: @items.as_json(only: [:id, :bid, :name, :description, :category, :brand, :quantity, :price, :colour, :size, :weight]), csrfToken: form_authenticity_token, purchaseOrderId: 1 }) %>
+  </div>
 
   <%= link_to "New item", new_item_path %>
-
-  <%# <h3>React component example</h3> %>
-  <%# <%= react_component("HelloWorld", { name: "Items Page" }) %>
-
-  <%# <h3>Items</h3> %>
-
-  <%= react_component("ItemsList", { items: @items.as_json(only: [:id, :bid, :name, :description, :category, :brand, :quantity, :price, :colour, :size, :weight]), csrfToken: form_authenticity_token, purchaseOrderId: 1 }) %>
-  <%# <%= react_component("ItemsList", { items: @items.as_json(only: [:id, :bid, :name, :description, :category, :brand, :quantity, :price, :colour, :size, :weight]) }) %> 
 
 <div>
