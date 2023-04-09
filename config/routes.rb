@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :users
   get 'chatbot/show'
   resources :reviews
-  resources :users
   resources :addresses
   resources :visit_events
   resources :purchase_orders
