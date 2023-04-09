@@ -30,6 +30,14 @@ class ItemsController < ApplicationController
   def show
     @item = set_item
     @review = Review.new(item: @item)
+
+    VisitEvent.create(
+      ipaddress: '1.23.4.5',
+      day: Date.current.strftime('%m%d%Y'),
+      bid: @item.bid,
+      eventtype: 'VIEW',
+      item_id: @item.id,
+    )
   end
 
   # GET /items/new

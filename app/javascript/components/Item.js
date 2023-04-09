@@ -1,6 +1,6 @@
 import React from "react";
 
-const Item = ({item}) => {
+const Item = ({item, csrfToken, purchaseOrderId}) => {
     const addToCart = (item, csrfToken) => {
         fetch("/po_items", {
           method: "POST",

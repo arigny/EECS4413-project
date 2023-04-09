@@ -25,7 +25,7 @@ const ItemsList = ({ items, csrfToken, purchaseOrderId }) => {
       <input type="text" className="form-control searchbar" placeholder="Search products" value={search} onChange={onSearchChange}></input>
       <div className="card-grid card-body">
         {filteredItems().map((item) => (
-          <Item key={item.id} item={item} />
+          <Item key={item.id} item={item} csrfToken={csrfToken} purchaseOrderId={purchaseOrderId} />
         ))}
         <br />
       </div>
