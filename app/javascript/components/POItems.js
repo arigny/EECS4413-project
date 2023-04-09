@@ -1,8 +1,24 @@
 import React from "react";
 
+const deleteBeer = (id) => {
+  const url = `api/v1/beers/${id}`;
+
+  fetch(url, {
+    method: "delete",
+  })
+    .then((data) => {
+      if (data.ok) {
+        this.reloadBeers();
+        return data.json();
+      }
+      throw new Error("Network error.");
+    })
+    .catch((err) => message.error("Error: " + err));
+};
+
 const POItems = ({ po_items }) => {
   let subtotal = 0;
-  let shippingfees = 7;
+  let shippingfees = po_items.length;
   let grandTotal = 0;
 
   for (let i = 0; i < po_items.length; i++) {
@@ -33,9 +49,12 @@ const POItems = ({ po_items }) => {
               <td>{po_item.quantity}</td>
               <td>{po_item.price * po_item.quantity}</td>
               <td>
-                <a href={`po_items/${po_item.id}`} className="card-link">
-                  {" "}
-                  See details
+                <a
+                  href={`po_items/${po_item.id}`}
+                  method="delete"
+                  className="card-link"
+                >
+                  Delete
                 </a>
               </td>
             </tr>

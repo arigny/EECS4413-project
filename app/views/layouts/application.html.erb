@@ -15,6 +15,11 @@
   </head>
 
   <body>
+    
+    <%= render "layouts/navbar" %>
+    <%# <p class="notice"><%= notice </p> %>
+    <%# <p class="alert"><%= alert </p> %>
+
     <%= yield %>
 
       <%= link_to(chatbot_show_path, class: "btn btn-primary btn-circle btn-xl #{'active' if current_page?(chatbot_show_path)}", id:"chatbot-button") do %>

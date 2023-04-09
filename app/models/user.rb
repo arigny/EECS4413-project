@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  belongs_to :address
-
-  validates :email, :password, :address_id, presence: true
-  validates :email, uniqueness: true
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
 end
