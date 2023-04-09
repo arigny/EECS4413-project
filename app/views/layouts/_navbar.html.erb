@@ -8,32 +8,47 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent" >
-        <ul class="navbar-nav mr-auto">
-            <%# <li class="nav-item">
-                <%= link_to 'Items', root_path, class: "nav-link #{'active' if current_page?(root_path)}" 
-            </li> %>
+        <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-                <%= link_to 'POItems', po_items_path, class: "nav-link #{'active' if current_page?(po_items_path)}" %>
-            </li>
-            <li class="nav-item">
-                <%= link_to 'PurchaseOrders', purchase_orders_path, class: "nav-link #{'active' if current_page?(purchase_orders_path)}" %>
+                <%= link_to 'Catalog', root_path, class: "nav-link #{'active' if current_page?(root_path)}" %>
             </li>
             <li class="nav-item">
                 <%= link_to 'Reviews', reviews_path, class: "nav-link #{'active' if current_page?(reviews_path)}" %>
             </li>
             <li class="nav-item">
-                <%= link_to 'Users', users_path, class: "nav-link #{'active' if current_page?(users_path)}" %>
+                <%= link_to 'Cart', po_items_path, class: "nav-link #{'active' if current_page?(po_items_path)}" %>
             </li>
+
+            <% if session[:admin] %>
+              <li class="nav-item">
+                  <%= link_to 'Users', users_path, class: "nav-link #{'active' if current_page?(users_path)}" %>
+              </li>
+              <li class="nav-item">
+                  <%= link_to 'PurchaseOrders', purchase_orders_path, class: "nav-link #{'active' if current_page?(purchase_orders_path)}" %>
+              </li>
+
+              <li class="nav-item">
+                  <%= link_to 'VisitEvents', visit_events_path, class: "nav-link #{'active' if current_page?(visit_events_path)}" %>
+              </li>
+            <% end %>
+
             <li class="nav-item">
-                <%= link_to 'VisitEvents', visit_events_path, class: "nav-link #{'active' if current_page?(visit_events_path)}" %>
+                <% if session[:user_id].present? %>
+                  <%= button_to 'Logout', logout_path, method: :delete, class: "btn btn-danger" %>
+                <% else %>
+                  <%= link_to 'Login', login_path, class: "btn btn-primary" %>
+                <% end %>
             </li>
            
         </ul>
     </div>
-    <form class="d-flex" role="search">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success" type="submit">Search</button>
-    </form>
+
+    <%# <form class="d-flex" role="search"> %>
+      <%# <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> %>
+      <%# <button class="btn btn-outline-success" type="submit">Search</button> %>
+    <%# </form> %>
+
+
   </div>
 </nav>
 

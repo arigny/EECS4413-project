@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
     # if user && user.authenticate(params[:password])
     if user && user.password == params[:password]
       session[:user_id] = user.id
+      session[:admin] = nil
       redirect_to root_path, notice: 'Logged in successfully!'
     else
       flash.now[:alert] = 'Invalid email or password!'
@@ -17,6 +18,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
+    session[:admin] = nil
     redirect_to root_path, notice: 'Logged out!'
   end
 end
