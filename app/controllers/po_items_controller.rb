@@ -4,6 +4,8 @@ class PoItemsController < ApplicationController
   # GET /po_items or /po_items.json
   def index
     @po_items = PoItem.all
+    @subtotal = @po_items.map(&:price).sum
+    @grandtotal = @subtotal + @po_items.count
   end
 
   # GET /po_items/1 or /po_items/1.json
@@ -51,7 +53,7 @@ class PoItemsController < ApplicationController
     @po_item.destroy
 
     respond_to do |format|
-      format.html { redirect_to po_items_url, notice: "Po item was successfully destroyed." }
+      format.html { redirect_to po_items_url, notice: "Shopping cart item is removed." }
       format.json { head :no_content }
     end
   end
