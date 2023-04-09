@@ -38,7 +38,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_28_225832) do
 
   create_table "po_items", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "bid", limit: 20, null: false
+    t.string "name", limit: 20, null: false
     t.integer "price", null: false
+    t.integer "quantity", null: false
     t.bigint "purchase_order_id"
     t.bigint "item_id"
     t.datetime "created_at", null: false

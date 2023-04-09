@@ -13,7 +13,7 @@
 
   <div>
     <%= form.label :item_id %>
-    <%= collection_select( :po_item, :item_id, Item.order(:id), :id, :name) %>
+    <%= collection_select( :po_item, :item_id, Item.order(:id), :id, :name ) %>
   </div>
 
   <div>
@@ -28,7 +28,7 @@
 
   <div>
     <%= form.label :purchase_order_id %>
-    <%= collection_select( :po_item, :purchase_order_id, PurchaseOrder.order(:id), :id, :lname) %>
+    <%= collection_select( :po_item, :purchase_order_id, PurchaseOrder.order(:id), :id, :lname ) %>
   </div>
 
   <div>

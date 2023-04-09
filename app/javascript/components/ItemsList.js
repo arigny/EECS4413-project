@@ -8,7 +8,7 @@ const ItemsList = ({ items, csrfToken, purchaseOrderId }) => {
                 "Content-Type": "application/json",
                 "X-CSRF-Token": csrfToken
             },
-            body: JSON.stringify({ item_id: item.id, bid: item.bid, price: item.price, purchase_order_id: purchaseOrderId})
+            body: JSON.stringify({ item_id: item.id, bid: item.bid, name: item.name, quantity: 1, price: item.price, purchase_order_id: purchaseOrderId})
         })
         .then(response => {
             if (response.ok) {
