@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'chatbot/show'
   resources :reviews
   resources :users
   resources :addresses
