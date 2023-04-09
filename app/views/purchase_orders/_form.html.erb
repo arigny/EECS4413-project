@@ -28,7 +28,7 @@
 
   <div>
     <%= form.label :address_id %>
-    <%= form.text_field :address_id %>
+    <%= collection_select( :purchase_order, :address_id, Address.order(:id), :id, :street) %>
   </div>
 
   <div>
