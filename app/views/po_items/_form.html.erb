@@ -12,18 +12,23 @@
   <% end %>
 
   <div>
-    <%= form.label :name %>
-    <%= form.number_field :name %> 
+    <%= form.label :item_id %>
+    <%= collection_select( :po_item, :item_id, Item.order(:id), :id, :name ) %>
+  </div>
+
+  <div>
+    <%= form.label :bid %>
+    <%= form.text_field :bid %>
   </div>
 
   <div>
     <%= form.label :price %>
-    <%= form.text_field :price %>
+    <%= form.number_field :price %>
   </div>
 
   <div>
-    <%= form.label :quantity %>
-    <%= form.number_field :quantity %>
+    <%= form.label :purchase_order_id %>
+    <%= collection_select( :po_item, :purchase_order_id, PurchaseOrder.order(:id), :id, :lname ) %>
   </div>
 
   <div>

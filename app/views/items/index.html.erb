@@ -21,5 +21,8 @@
   <%# <%= react_component("HelloWorld", { name: "Items Page" }) %>   %>
 
   <%# <h3>Items</h3> %>
-  <%= react_component("ItemsList", { items: @items.as_json(only: [:id, :bid, :name, :description, :category, :brand, :quantity, :price, :colour, :size, :weight]) }) %>
+
+  <%= react_component("ItemsList", { items: @items.as_json(only: [:id, :bid, :name, :description, :category, :brand, :quantity, :price, :colour, :size, :weight]), csrfToken: form_authenticity_token, purchaseOrderId: 1 }) %>
+  <%# <%= react_component("ItemsList", { items: @items.as_json(only: [:id, :bid, :name, :description, :category, :brand, :quantity, :price, :colour, :size, :weight]) }) %> %>
+
 <div>
