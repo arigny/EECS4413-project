@@ -22,6 +22,7 @@ class ReviewsController < ApplicationController
   # POST /reviews or /reviews.json
   def create
     @review = Review.new(review_params)
+    @item = Item.find(params[:review][:item_id])
 
     respond_to do |format|
       if @review.save

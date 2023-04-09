@@ -1,3 +1,5 @@
+<div class="card">
+<div class="card-body">
 <%= form_with(model: review) do |form| %>
   <% if review.errors.any? %>
     <div style="color: red">
@@ -11,22 +13,34 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :rating %>
-    <%= form.select :rating, [1,2,3,4,5] %>
+  <div class="row">
+    <div class="form-group col">
+      <%= form.label :rating, class: "form-control-label"  %>
+      <%= form.select( :rating, [1,2,3,4,5], {}, {class: "form-select"}) %>
+    </div>
+
+    <div class="form-group col">
+      <% if @item %>
+        <%= form.hidden_field :item_id, value: @item.id %>
+      <% else %>
+        <div>
+          <%= form.label :item_id, class: "form-control-label" %>
+          <%= collection_select( :review, :item_id, Item.order(:id), :id, :name, { prompt: "Select item" }, { class: "form-select" }) %>
+        </div>
+      <%end>%>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group">
+      <%= form.label :comment, class: "form-control-label" %>
+      <%= form.text_area :comment, :size => "100x1", class: "form-control" %>
+    </div>
   </div>
 
   <div>
-    <%= form.label :comment %>
-    <%= form.text_area :comment, :size => "100x1" %>
-  </div>
-
-  <div>
-    <%= form.label :item_id %>
-    <%= collection_select( :review, :item_id, Item.order(:id), :id, :name) %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+    <%= form.submit "Add Review", class: "btn btn-primary" %>
   </div>
 <% end %>
+</div>
+</div>

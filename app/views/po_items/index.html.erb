@@ -3,16 +3,18 @@
 
   <p style="color: green"><%= notice %></p>
 
-  <h1>Po items</h1>
+  <h1>Shopping Cart</h1>
 
-  <div id="po_items">
-    <% @po_items.each do |po_item| %>
-      <%= render po_item %>
-        <p>
-        <%= link_to "Show this po item", po_item %>
-      </p>
-    <% end %>
-  </div>
+  <%# <div id="po_items"> %>
+    <%# <% @po_items.each do |po_item| %> 
+      <%# <%= render po_item %> 
+        <%# <p> %>
+        <%# <%= link_to "Show this po item", po_item %> 
+      <%# </p> %>
+    <%# <% end %> 
+  <%# </div> %>
 
-  <%= link_to "New po item", new_po_item_path %>
+  <%# <%= link_to "New po item", new_po_item_path %> 
+    <%= react_component("POItems", { po_items: @po_items.as_json(only: [:id, :bid, :name, :price, :quantity, :purchase_order_id, :item_id]) }) %>
+
 </div>

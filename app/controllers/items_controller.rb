@@ -9,6 +9,7 @@ class ItemsController < ApplicationController
   # GET /items/1 or /items/1.json
   def show
     @item = set_item
+    @review = Review.new(item: @item)
   end
 
   # GET /items/new
