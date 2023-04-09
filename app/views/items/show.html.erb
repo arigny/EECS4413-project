@@ -5,7 +5,13 @@
   
   <%= render @item %>
 
-  <%= render @item.reviews %>
+  <p>-------------------------------</p>
+
+  <% if @item.reviews.any? %>
+    <%= render @item.reviews %>
+  <% end %>
+
+  <%= render partial: "reviews/form", locals: { review: @review } %>
 
   <div>
     <%= link_to "Edit this item", edit_item_path(@item) %> |
