@@ -75,3 +75,18 @@ a {
 .btn{
   margin: 2px;
 }
+
+.navbar-brand
+{
+  font-size: 40px;
+}
+
+#link_to_id:link{
+  color:blue;
+}
+#link_to_id:visited{
+  color:blue;
+}
+#link_to_id:hover{
+  color:red;
+}

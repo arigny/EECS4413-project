@@ -1,13 +1,17 @@
-<br>
 
-<nav class="navbar navbar-expand-md navbar-light bg-light">
-    <%= link_to 'Home', root_path, class: 'navbar-brand' %>
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand"><%= link_to 'Glasses', root_path, class: 'navbar-brand' %></a>
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" >
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <%= link_to 'Items', root_path, class: "nav-link #{'active' if current_page?(root_path)}" %>
-            </li>
+            <%# <li class="nav-item">
+                <%= link_to 'Items', root_path, class: "nav-link #{'active' if current_page?(root_path)}" 
+            </li> %>
             <li class="nav-item">
                 <%= link_to 'POItems', po_items_path, class: "nav-link #{'active' if current_page?(po_items_path)}" %>
             </li>
@@ -26,7 +30,11 @@
            
         </ul>
     </div>
-
+    <form class="d-flex" role="search">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+  </div>
 </nav>
 
 <br>
