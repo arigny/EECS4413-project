@@ -4,6 +4,7 @@ class PoItemsController < ApplicationController
   # GET /po_items or /po_items.json
   def index
     @po_items = PoItem.all
+    @grouped_po_items = @po_items.group_by { |po_item| po_item.slice(:bid, :name, :price) }.map { | k, v| {attributes: k, count: v.count} }
     @subtotal = @po_items.map(&:price).sum
     @grandtotal = @subtotal + @po_items.count
   end
@@ -57,6 +58,17 @@ class PoItemsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def duplicate
+    po_item = PoItem.find(params[:id])
+    duplicated_po_item = po_item.dup
+    if duplicated_po_item.save
+      redirect_to po_items_path, notice: 'Item was added successfully'
+    else
+      redirect_to po_items_path, alert: 'An error occured while duplicating the item'
+    end
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

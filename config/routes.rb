@@ -7,6 +7,13 @@ Rails.application.routes.draw do
   resources :purchase_orders
   resources :po_items
   resources :items
+
+  resources :po_items do
+    member do
+      post 'duplicate'
+    end
+  end
+
   delete 'logout' => 'sessions#destroy'
   get 'login' => 'sessions#new', as: :login
   post 'login' => 'sessions#create'

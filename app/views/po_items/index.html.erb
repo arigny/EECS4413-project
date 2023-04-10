@@ -19,14 +19,21 @@
           </tr>
         </thead>
         <tbody>
-        <% @po_items.each do |item|%>
+        <% @grouped_po_items.each_with_index do |item, index|%>
           <tr>
-            <th scope="row"><%=item.bid%></th>
-            <td><%= link_to item.name, item, id: 'link_to_id' %></td>
-            <td><%= item.price%></td>
-            <td><%= item.quantity%></td>
-            <td><%= item.quantity*item.price%></td>
-            <td><%= button_to "Destroy", item, method: :delete , class:'btn btn-outline-danger'%></td>
+            <th scope="row"><%=item[:attributes][:bid] %></th>
+            <td><%= item[:attributes][:name] %></td>
+            <td><%= item[:attributes][:price] %></td>
+            <td><%= item[:count] %></td>
+            <td><%= item[:count]*item[:attributes][:price] %></td>
+            <td>
+              <div class="d-inline-block">
+                <%= button_to 'Add another', duplicate_po_item_path(@po_items[index]), method: :post, class: 'btn btn-primary' %>
+              </div>
+              <div class="d-inline-block">
+                <%= button_to "Remove one", po_item_path(@po_items[index]), method: :delete , class: 'btn btn-outline-danger' %>
+              </div>
+            </td>
             
           </tr>
         <%end%>
