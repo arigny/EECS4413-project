@@ -1,13 +1,13 @@
 <%= render "layouts/navbar" %>
 <div class="container">
 
-  <h1>New purchase order</h1>
+  <h1>Check Out</h1> <br/>
 
   <%= render "form", purchase_order: @purchase_order %>
 
   <br>
 
   <div>
-    <%= link_to "Back to purchase orders", purchase_orders_path %>
+    <%= link_to "Back to shopping cart", purchase_orders_path, class:"btn btn-light" %>
   </div>
 </div>

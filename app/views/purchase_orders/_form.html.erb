@@ -16,21 +16,22 @@
     <%= form.text_field :lname %>
   </div>
 
+</br>
   <div>
     <%= form.label :fname %>
     <%= form.text_field :fname %>
   </div>
 
-  <div>
-    <%= form.label :status %>
-    <%= form.text_field :status %>
-  </div>
-
+  <%# <div> %>
+    <%# <%= form.label :status %> 
+    <%# <%= form.text_field :status %> 
+  <%# </div> %>
+  </br>
   <div>
     <%= form.label :address_id %>
     <%= collection_select( :purchase_order, :address_id, Address.order(:id), :id, :street) %>
   </div>
-
+</br>
   <div>
     <%= form.submit %>
   </div>
