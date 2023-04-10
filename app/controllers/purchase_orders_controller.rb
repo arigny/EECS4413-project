@@ -23,7 +23,8 @@ class PurchaseOrdersController < ApplicationController
   def create
     @purchase_order = PurchaseOrder.new(purchase_order_params)
 
-    current_po_items = PoItem.where(purchase_order_id: @purchase_order_id)
+    # current_po_items = PoItem.where(purchase_order_id: @purchase_order_id)
+    current_po_items = PoItem.all
 
     respond_to do |format|
       if @purchase_order.save
