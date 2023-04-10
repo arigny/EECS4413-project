@@ -1,4 +1,6 @@
-import React from "react";
+import * as React from 'react';
+import { GlassArView } from "@lastcode802/glassarview"; // import from https://github.com/lastcode802/glassarview#available-code
+
 
 const Item = ({item, csrfToken, purchaseOrderId}) => {
     const addToCart = (item, csrfToken) => {
@@ -43,6 +45,11 @@ const Item = ({item, csrfToken, purchaseOrderId}) => {
           style={{ width: "18rem" }}
         >
           <div className="card-body">
+            <GlassArView
+              modelname="rayban_aviator_or_vertFlash"
+              canvasheight={500}
+              canvaswidth={500}
+            />
             <h5 className="card-title">{item.name}</h5>
             <h6 className="card-subtitle mb-2 text-muted">${item.price}</h6>
             <p className="card-text">{item.description}</p>
