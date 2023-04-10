@@ -17,7 +17,7 @@ class PurchaseOrder < ApplicationRecord
         credit_card_digits = credit_card_number.gsub(/\D/, "")
         return errors.add(:credit_card_number, "is invalid") if credit_card_digits.length != 16
     
-        most_recent_orders = PurchaseOrder.order("created_at DESC").limit(3).pluck(:status)
+        most_recent_orders = PurchaseOrder.order("created_at DESC").limit(2).pluck(:status)
         denied_check = most_recent_orders.count("ORDERED") == 2
     
         if denied_check

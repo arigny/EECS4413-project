@@ -16,6 +16,13 @@ class PoItemsController < ApplicationController
   # GET /po_items/new
   def new
     @po_item = PoItem.new
+    VisitEvent.create(
+      ipaddress: '1.23.4.5',
+      day: Date.current.strftime('%m%d%Y'),
+      bid: @po_item.bid,
+      eventtype: 'CART',
+      item_id: @po_item.item_id,
+    )
   end
 
   # GET /po_items/1/edit

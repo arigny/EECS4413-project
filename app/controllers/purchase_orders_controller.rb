@@ -29,6 +29,17 @@ class PurchaseOrdersController < ApplicationController
     respond_to do |format|
       if @purchase_order.save
         if @purchase_order.status == "ORDERED"
+          
+          current_po_items.each do |item|
+            VisitEvent.create(
+              ipaddress: '1.23.4.5',
+              day: Date.current.strftime('%m%d%Y'),
+              bid: item.bid,
+              eventtype: 'PURCHASE',
+              item_id: item.id,
+            )
+          end
+
           current_po_items.destroy_all
         end
 
