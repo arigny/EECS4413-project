@@ -15,9 +15,14 @@
             <li class="nav-item">
                 <%= link_to 'Reviews', reviews_path, class: "nav-link #{'active' if current_page?(reviews_path)}" %>
             </li>
+
+            <% if session[:admin] %>
+
+            <%else%>
             <li class="nav-item">
                 <%= link_to 'Cart', po_items_path, class: "nav-link #{'active' if current_page?(po_items_path)}" %>
             </li>
+            <%end%>
 
             <% if session[:admin] %>
               <li class="nav-item">

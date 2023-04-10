@@ -5,9 +5,12 @@
   <%= render @po_item %>
   
   <div>
+  <% if session[:admin] %>
     <%= link_to "Edit this po item", edit_po_item_path(@po_item) %> |
+  <%end%>
     <%= link_to "Back to po items", po_items_path %>
-
+  <% if session[:admin] %>
     <%= button_to "Delete ", @po_item, method: :delete %>
+    <%end%>
   </div>
 </div>
