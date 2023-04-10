@@ -1,10 +1,11 @@
 class PurchaseOrder < ApplicationRecord
     belongs_to :address
-    has_many :po_items
+    has_many :po_items, dependent: :destroy
 
     attr_accessor :credit_card_number
     validates :credit_card_number, presence: true
     validate :mock_credit_card_authentication
+    after_create :destroy_po_items, if: -> { status == "ORDERED" }
 
     validates :lname, :fname, :status, :address_id, presence: true
 
@@ -23,5 +24,9 @@ class PurchaseOrder < ApplicationRecord
         else
             self.status = "ORDERED"
         end
+    end
+
+    def destroy_po_items
+        po_items.destroy_all
     end
 end

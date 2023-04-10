@@ -23,8 +23,14 @@ class PurchaseOrdersController < ApplicationController
   def create
     @purchase_order = PurchaseOrder.new(purchase_order_params)
 
+    current_po_items = PoItem.where(purchase_order_id: @purchase_order_id)
+
     respond_to do |format|
       if @purchase_order.save
+        if @purchase_order.status == "ORDERED"
+          current_po_items.destroy_all
+        end
+
         flash[:notice] = @purchase_order.status == "DENIED" ? 'Transaction denied.' : ''
         format.html { redirect_to purchase_order_url(@purchase_order), notice: "Purchase order was successfully created." }
         format.json { render :show, status: :created, location: @purchase_order }
