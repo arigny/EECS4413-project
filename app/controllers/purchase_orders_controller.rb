@@ -23,8 +23,15 @@ class PurchaseOrdersController < ApplicationController
   def create
     @purchase_order = PurchaseOrder.new(purchase_order_params)
 
+    current_po_items = PoItem.where(purchase_order_id: @purchase_order_id)
+
     respond_to do |format|
       if @purchase_order.save
+        if @purchase_order.status == "ORDERED"
+          current_po_items.destroy_all
+        end
+
+        flash[:notice] = @purchase_order.status == "DENIED" ? 'Transaction denied.' : ''
         format.html { redirect_to purchase_order_url(@purchase_order), notice: "Purchase order was successfully created." }
         format.json { render :show, status: :created, location: @purchase_order }
       else
@@ -65,6 +72,6 @@ class PurchaseOrdersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def purchase_order_params
-      params.require(:purchase_order).permit(:id, :lname, :fname, :status, :address_id)
+      params.require(:purchase_order).permit(:id, :lname, :fname, :status, :address_id, :credit_card_number)
     end
 end

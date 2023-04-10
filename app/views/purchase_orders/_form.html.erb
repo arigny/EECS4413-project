@@ -1,3 +1,6 @@
+<div class="card">
+<div class="card-body">
+
 <%= form_with(model: purchase_order) do |form| %>
   <% if purchase_order.errors.any? %>
     <div style="color: red">
@@ -11,27 +14,42 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :lname %>
-    <%= form.text_field :lname %>
-  </div>
+    <div class="col-md-auto">
+      <div class="row">
+        <div class="form-group col">
+          <%= form.label :first_name %>
+          <%= form.text_field :lname, value: User.find(session[:user_id]).fname, class: 'form-control' %>
+        </div>
 
-  <div>
-    <%= form.label :fname %>
-    <%= form.text_field :fname %>
-  </div>
+      <div>
+        <div class="form-group col">
+          <%= form.label :last_name %>
+          <%= form.text_field :fname, value: User.find(session[:user_id]).lname, class: 'form-control' %>
+        </div>
+      </div>
 
-  <div>
-    <%= form.label :status %>
-    <%= form.text_field :status %>
-  </div>
+      <div>
+        <%# <%= form.label :status %>
+        <%= form.hidden_field :status, value: "PROCESSING", class: 'form-control' %>
+      </div>
 
-  <div>
-    <%= form.label :address_id %>
-    <%= collection_select( :purchase_order, :address_id, Address.order(:id), :id, :street) %>
-  </div>
+      <div class="row">
+        <div class="form-group col">
+          <%= form.label :address_id %>
+          <%= collection_select( :purchase_order, :address_id, Address.order(:id), :id, :street, { selected: session[:address_id]}, class: 'form-control') %>
+        </div>
+      </div>
 
-  <div>
-    <%= form.submit %>
+      <div class="field">
+        <%= form.label :credit_card_number %>
+        <%= form.text_field :credit_card_number, class: 'form-control' %>
+      </div>
+
+      <div>
+        <%= form.submit "Submit order", class: "btn btn-primary" %>
+      </div>
   </div>
 <% end %>
+
+</div>
+</div>
