@@ -1,13 +1,19 @@
 <%= render "layouts/navbar" %>
 <div class="container">
   
-  <h1>New user</h1>
+  <h1>Registration</h1>
 
   <%= render "form", user: @user %>
 
   <br>
 
+  <% if session[:admin] %>
   <div>
-    <%= link_to "Back to users", users_path %>
+      <%= link_to "Back to users", users_path %>
+    </div>
+  <% else %>
+    <div>
+        <%= link_to "Back to login", login_path %>
   </div>
+  <%end%>
 </div>

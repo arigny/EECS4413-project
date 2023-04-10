@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
   get 'login' => 'sessions#new', as: :login
   post 'login' => 'sessions#create'
+  get 'register' => 'users#new'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
