@@ -3,7 +3,7 @@
 
   <h1>Check Out</h1> <br/>
 
-  <% if session[:address_id].nil? %>
+  <% if session[:user_id].nil? %>
     <h4>Please register</h4>
     <%= render 'users/form', user: User.new %>
   <% else %>
