@@ -3,7 +3,12 @@
 
   <h1>Check Out</h1> <br/>
 
-  <%= render "form", purchase_order: @purchase_order %>
+  <% if session[:address_id].nil? %>
+    <h4>Please register</h4>
+    <%= render 'users/form', user: User.new %>
+  <% else %>
+    <%= render "form", purchase_order: @purchase_order %>
+  <% end%>
 
   <br>
 
