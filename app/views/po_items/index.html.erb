@@ -88,6 +88,19 @@
             Continue Shopping
           </a>
 
+        <%if @po_items.length === 0 %>
+          <a
+            role="button"
+            class="btn btn-primary btn-md center-block"
+            <%# href="purchase_orders/new" %>
+            data-toggle="tooltip"
+            data-placement="top"
+            style="display: "inline-block""
+            onclick="myFunction()"
+          >
+            Check out
+          </a>
+        <%else%>
           <a
             role="button"
             class="btn btn-primary btn-md center-block"
@@ -98,6 +111,7 @@
           >
             Check out
           </a>
+        <%end%>
         </div>
       </div>
     </div>
@@ -115,3 +129,9 @@
     <%# <%= react_component("POItems", { po_items: @po_items.as_json(only: [:id, :bid, :name, :price, :quantity, :purchase_order_id, :item_id]) }) %> 
 
 </div>
+
+<script>
+  function myFunction() {
+    alert("Shopping cart is empty! Please add item into shopping cart to check out.");
+  }
+</script>
