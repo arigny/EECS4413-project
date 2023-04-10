@@ -3,17 +3,89 @@
 
   <p style="color: green"><%= notice %></p>
 
-  <h1>Visit events</h1>
+  <h1>Admin Reports</h1>
 
-  <div id="visit_events">
-    <% @visit_events.each do |visit_event| %>
-      <%= render visit_event %>
-      <p>
-        <%= link_to "Show this visit event", visit_event %>
-      </p>
-    <% end %>
+  <% if @filtered %>
+    <h2>Sales for <%= Date::MONTHNAMES[params[:month].to_i] %> <%= params[:year]%></h2>
+  <% else %>
+    <h2>All Sales</h2>
+  <% end %>
+
+  <%= form_with url: visit_events_path, method: :get, html: { class: 'd-flex align-items-center' } do |form| %>
+    <div class="input-group me-2">
+      <span class="input-group-text">Select Month:</span>
+      <%= form.select :month, (1..12).map { |m| [Date::MONTHNAMES[m], m] }, {}, class: 'form-select' %>
+    </div>
+    <div class="input-group me-2">
+      <span class="input-group-text">Select Year:</span>
+      <%= form.select :year, VisitEvent.all.map { |event| Date.strptime(event.day, '%m%d%y').year }.uniq.sort, {}, class: 'form-select' %>
+    </div>
+    <%= form.submit 'Filter', class: 'btn btn-primary me-2' %>
+    <%= link_to 'Clear Filters', visit_events_path, class: 'btn btn-secondary text-nowrap' %>
+  <% end %>
+
+  <div>
+    <table class="table table-striped table-bordered table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Date</th>
+          <th scope="col">Item Name</th>
+          <th scope="col">Item ID</th>
+          <th scope="col">BID</th>
+          <th scope="col">IP Address</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @visit_events.each do |visit_event| %>
+          <% parsed_date = Date.strptime(visit_event.day, '%m%d%y') %>
+          <% readable_date = parsed_date.strftime('%b %d %Y') %>
+          <% if visit_event.eventtype == "PURCHASE" %>
+            <tr>
+              <th scope="row"><%= readable_date %></th>
+              <td scope="row"><%= visit_event.item.name %></td>
+              <td scope="row"><%= visit_event.item_id %></td>
+              <td scope="row"><%= visit_event.bid %></td>
+              <td scope="row"><%= visit_event.ipaddress %></td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 
-  <%= link_to "New visit event", new_visit_event_path %>
+  <h2>All Activity</h2>
+
+  <div>
+    <table class="table table-striped table-bordered table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Date</th>
+          <th scope="col">Event Type</th>
+          <th scope="col">Item Name</th>
+          <th scope="col">Item ID</th>
+          <th scope="col">BID</th>
+          <th scope="col">IP Address</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @visit_events.each do |visit_event| %>
+          <% parsed_date = Date.strptime(visit_event.day, '%m%d%y') %>
+          <% readable_date = parsed_date.strftime('%b %d %Y') %>
+          <tr>
+            <th scope="row"><%= readable_date %></th>
+            <td scope="row"><%= visit_event.eventtype %></td>
+            <td scope="row"><%= visit_event.item.name %></td>
+            <td scope="row"><%= visit_event.item_id %></td>
+            <td scope="row"><%= visit_event.bid %></td>
+            <td scope="row"><%= visit_event.ipaddress %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <%# <%= link_to "New visit event", new_visit_event_path %>
 
 </div>

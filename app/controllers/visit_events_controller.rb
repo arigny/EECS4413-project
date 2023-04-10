@@ -3,7 +3,19 @@ class VisitEventsController < ApplicationController
 
   # GET /visit_events or /visit_events.json
   def index
-    @visit_events = VisitEvent.all
+    @all_visit_events = VisitEvent.all
+    @filtered = false
+
+    if params[:month].present? && params[:year].present?
+      @visit_events = VisitEvent.all.select do |event|
+        date = Date.strptime(event.day, '%m%d%y')
+        date.month == params[:month].to_i && date.year == params[:year].to_i
+      end
+      @filtered = true 
+    else
+      @visit_events = @all_visit_events
+    end
+    # @visit_events = VisitEvent.all
   end
 
   # GET /visit_events/1 or /visit_events/1.json
