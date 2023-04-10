@@ -58,17 +58,17 @@
         <h6>Cart Totals</h6>
         <div class="row">
           <div class="col-sm-4 border border-secondary">Subtotal</div>
-          <div class="col-sm-2 border border-secondary">CA$<%= @subtotal %></div>
+          <div class="col-sm-2 border border-secondary" style="text-align: right;">CA$<%= @subtotal %></div>
         </div>
         <div class="row">
-          <div class="col-sm-4 border border-secondary">Shipping fees</div>
-          <div class="col-sm-2 border border-secondary">
+          <div class="col-sm-4 border border-secondary border-top-0">Shipping fees</div>
+          <div class="col-sm-2 border border-secondary border-top-0" style="text-align: right;">
             CA$<%=@po_items.count%>
           </div>
         </div>
         <div class="row">
-          <div class="col-sm-4 border border-secondary">Grand Total</div>
-          <div class="col-sm-2 border border-secondary">
+          <div class="col-sm-4 border border-secondary border-top-0" style="background-color: #F0F8FF; font-weight: bold; padding: 10px 10px;">Grand Total</div>
+          <div class="col-sm-2 border border-secondary border-top-0" style="background-color: #F0F8FF; text-align: right; font-weight: bold; padding: 10px 10px;">
             CA$<%=@grandtotal%>
           </div>
         </div>
@@ -94,7 +94,7 @@
             href="purchase_orders/new"
             data-toggle="tooltip"
             data-placement="top"
-            style="display: "inline-block""
+            style="display: "inline-block";"
           >
             Check out
           </a>
