@@ -8,9 +8,10 @@
   
 
 <body>
+    <%= render "layouts/navbar" %>
+
     <div class="container">
 
-        <%= render "layouts/navbar" %>
 
             <h1>Virtual Chatbot </h1>
             <%# <h</h4> %>
@@ -23,7 +24,7 @@
                 <button class="btn btn-info" id="userBox" onclick="talk('What do I do if I need a new nose pad?')">What do I do if I need a new nose pad?</button><br/>
                 <button class="btn btn-info" id="userBox" onclick="talk('Detail of my order')">Detail of my order</button><br/>
                 <button class="btn btn-info" id="userBox" onclick="talk('Can I cancel my order after it was placed?')">Can I cancel my order after it was placed?</button><br/>
-                <button class="btn btn-info" id="userBox" onclick="talk('I don\'t need any further help.')">I don't need any further help.</button><br/>
+                <button class="btn btn-danger" id="userBox" onclick="talk('I don\'t need any further help.')">I don't need any further help.</button><br/>
             </div>
         </div>
     </div>

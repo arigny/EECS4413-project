@@ -26,10 +26,62 @@ Item.create(
   category: 'sunglasses',
   brand: 'Prada',
   quantity: 500,
-  price: 100,
+  price: 123,
   colour: 'white',
   size: 'large',
   weight: '40',
+)
+
+Item.create(
+  bid: 'd001',
+  name: 'sunnyglasses3',
+  description: 'A pair of glasses to go out',
+  category: 'sunglasses',
+  brand: 'Ray-Ban',
+  quantity: 100,
+  price: 765,
+  colour: 'brown',
+  size: 'large',
+  weight: '30',
+)
+
+Item.create(
+  bid: 'e001',
+  name: 'sunnyglasses4',
+  description: 'A pair of glasses to go out',
+  category: 'sunglasses',
+  brand: 'Ray-Ban',
+  quantity: 150,
+  price: 120,
+  colour: 'black',
+  size: 'small',
+  weight: '20',
+)
+
+Item.create(
+  bid: 'y700',
+  name: 'sunnyglasses5',
+  description: 'A pair of glasses to go out',
+  category: 'sunglasses',
+  brand: 'Ray-Ban',
+  quantity: 150,
+  price: 134,
+  colour: 'yellow',
+  size: 'small',
+  weight: '20',
+)
+
+Item.create(
+  bid: 'f345',
+  name: 'sunnyglasses6',
+  description: 'A pair of glasses to go out',
+  category: 'sunglasses',
+  brand: 'kate spade',
+  quantity: 2123,
+  price: 132,
+  colour: 'red',
+  size: 'large',
+  weight: '20',
 )
 
 Item.create(
@@ -39,9 +91,74 @@ Item.create(
   category: 'eyeglasses',
   brand: 'Kors',
   quantity: 1500,
-  price: 100,
-  colour: 'black',
+  price: 150,
+  colour: 'red',
   size: 'small',
+  weight: '30',
+)
+
+Item.create(
+  bid: 't005',
+  name: 'eyeglasses2',
+  description: 'A pair of glasses to read',
+  category: 'eyeglasses',
+  brand: 'Guess',
+  quantity: 122,
+  price: 300,
+  colour: 'white',
+  size: 'large',
+  weight: '30',
+)
+
+Item.create(
+  bid: 'r003',
+  name: 'eyeglasses3',
+  description: 'A pair of glasses to read',
+  category: 'eyeglasses',
+  brand: 'Guess',
+  quantity: 345,
+  price: 300,
+  colour: 'yellow',
+  size: 'small',
+  weight: '30',
+)
+
+Item.create(
+  bid: 'y001',
+  name: 'eyeglasses4',
+  description: 'A pair of glasses to read',
+  category: 'eyeglasses',
+  brand: 'Kors',
+  quantity: 1234,
+  price: 355,
+  colour: 'red',
+  size: 'large',
+  weight: '30',
+)
+
+Item.create(
+  bid: 'e901',
+  name: 'eyeglasses5',
+  description: 'A pair of glasses to read',
+  category: 'eyeglasses',
+  brand: 'Prada',
+  quantity: 1500,
+  price: 450,
+  colour: 'white',
+  size: 'small',
+  weight: '30',
+)
+
+Item.create(
+  bid: 'd100',
+  name: 'eyeglasses6',
+  description: 'A pair of glasses to read',
+  category: 'eyeglasses',
+  brand: 'kate spade',
+  quantity: 1500,
+  price: 322,
+  colour: 'brown',
+  size: 'large',
   weight: '30',
 )
 
